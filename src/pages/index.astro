@@ -26,7 +26,7 @@ const currentPath = Astro.url.href;
     <div class="w-3/5 grid grid-cols-4 gap-4">
       {
         images.map((image) => {
-          const url = image.default.slice(7);
+          const url = image.default;
           return <img class="w-full" src={url} />;
         })
       }
