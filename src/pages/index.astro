@@ -1,6 +1,6 @@
 ---
 const images = await Astro.glob("/public/seller-images/*");
-const currentPath = Astro.url.href;
+const currentPath = Astro.url.pathname;
 ---
 
 <html lang="en">
@@ -17,7 +17,7 @@ const currentPath = Astro.url.href;
       <ol class="list-decimal">
         {
           images.map((image) => {
-            const url = image.default.slice(8);
+            const url = image.default;
             return <li class="text-sm mb-2">{currentPath + url}</li>;
           })
         }
