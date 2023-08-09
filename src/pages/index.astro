@@ -1,6 +1,7 @@
 ---
 const images = await Astro.glob("/public/seller-images/*");
 const currentPath = Astro.url.pathname;
+const url = "https://ephemeral-pixie-93ecc9.netlify.app/";
 ---
 
 <html lang="en">
@@ -16,20 +17,14 @@ const currentPath = Astro.url.pathname;
       <h1 class="text-xl mb-8">Seller Images</h1>
       <ol class="list-decimal">
         {
-          images.map((image) => {
-            const url = image.default;
-            return <li class="text-sm mb-2">{currentPath + url}</li>;
-          })
+          images.map((image) => (
+            <li class="text-sm mb-2">{url + image.default}</li>
+          ))
         }
       </ol>
     </div>
     <div class="w-3/5 grid grid-cols-4 gap-4">
-      {
-        images.map((image) => {
-          const url = image.default;
-          return <img class="w-full" src={url} />;
-        })
-      }
+      {images.map((image) => <img class="w-full" src={image.default} />)}
     </div>
   </body>
 </html>
