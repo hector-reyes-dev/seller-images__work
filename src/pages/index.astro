@@ -1,7 +1,6 @@
 ---
 const images = await Astro.glob("/public/seller-images/*");
-const currentPath = Astro.site;
-console.log(currentPath);
+const currentPath = Astro.url.href;
 ---
 
 <html lang="en">
