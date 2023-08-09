@@ -1,6 +1,6 @@
 ---
 const images = await Astro.glob("/public/seller-images/*");
-const currentPath = Astro.url.pathname;
+const currentPath = Astro.url;
 ---
 
 <html lang="en">
@@ -12,18 +12,18 @@ const currentPath = Astro.url.pathname;
     <title>Astro - Seller Images</title>
   </head>
   <body class="p-8 flex items-start">
-    <div class="w-1/3 p-4">
+    <div class="w-2/5">
       <h1 class="text-xl mb-8">Seller Images</h1>
-      <ul>
+      <ol class="list-decimal">
         {
           images.map((image) => {
-            const url = image.default.slice(7);
-            return <li class="xs">{currentPath + url}</li>;
+            const url = image.default.slice(8);
+            return <li class="text-sm">{currentPath + url}</li>;
           })
         }
-      </ul>
+      </ol>
     </div>
-    <div class="w-2/3 grid grid-cols-6 gap-4">
+    <div class="w-3/5 grid grid-cols-4 gap-4">
       {
         images.map((image) => {
           const url = image.default.slice(7);
